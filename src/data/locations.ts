@@ -1,5 +1,3 @@
-import { getPlaceholderImage } from "../utils/placeholderImage";
-
 export interface Location {
   id: string;
   title: string;
@@ -342,7 +340,10 @@ export const locations: Location[] = [
   },
 ];
 
-// Generate placeholder images for all locations
+// Generate placeholder and local image paths for all locations
 for (const loc of locations) {
-  loc.imageUrl = getPlaceholderImage(loc.city, loc.category);
+  loc.imageUrl = `/images/${loc.id}.jpg`;
 }
+
+// Placeholder fallback generator - used by components when local image fails
+export { getPlaceholderImage } from "../utils/placeholderImage";

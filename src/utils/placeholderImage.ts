@@ -1,54 +1,76 @@
-const CITY_COLORS: Record<string, [string, string]> = {
-  Vilnius: ["#2563eb", "#7c3aed"],
-  Kaunas: ["#059669", "#0d9488"],
-  Palanga: ["#0ea5e9", "#06b6d4"],
-  Alytus: ["#d97706", "#ea580c"],
-  Klaipėda: ["#0284c7", "#0369a1"],
-  Biržai: ["#7c3aed", "#a855f7"],
-  Visaginas: ["#16a34a", "#22c55e"],
-  Zarasai: ["#2563eb", "#0ea5e9"],
-  Panevėžys: ["#dc2626", "#e11d48"],
-  Širvintos: ["#ca8a04", "#eab308"],
-  Jonava: ["#65a30d", "#84cc16"],
-  Nemenčinė: ["#9333ea", "#c084fc"],
-  Utena: ["#0891b2", "#06b6d4"],
+const CITY_COLORS: Record<string, [string, string, string]> = {
+  //                      gradient-start  gradient-end  accent
+  Vilnius: ["#1e40af", "#7c3aed", "#a78bfa"],
+  Kaunas: ["#065f46", "#0d9488", "#5eead4"],
+  Palanga: ["#0c4a6e", "#0284c7", "#7dd3fc"],
+  Alytus: ["#92400e", "#d97706", "#fcd34d"],
+  Klaipėda: ["#164e63", "#0891b2", "#67e8f9"],
+  Biržai: ["#581c87", "#9333ea", "#c4b5fd"],
+  Visaginas: ["#14532d", "#16a34a", "#86efac"],
+  Zarasai: ["#1e3a8a", "#2563eb", "#93c5fd"],
+  Panevėžys: ["#7f1d1d", "#dc2626", "#fca5a5"],
+  Širvintos: ["#713f12", "#ca8a04", "#fde68a"],
+  Jonava: ["#365314", "#65a30d", "#bef264"],
+  Nemenčinė: ["#4c1d95", "#7c3aed", "#c4b5fd"],
+  Utena: ["#155e75", "#0891b2", "#67e8f9"],
 };
 
-const ICONS: Record<string, string> = {
-  "Žaidimų aikštelė": "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5",
-  "Teminė aikštelė": "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5",
-  "Miesto parkas": "M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75",
-  "Vaikų parkas": "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm0 14.2a7.2 7.2 0 0 1-6-3.22c.03-1.99 4-3.08 6-3.08 2 0 5.97 1.09 6 3.08a7.2 7.2 0 0 1-6 3.22z",
-  "Jaunimo parkas": "M13 5.41V21h-2V5.41L5.35 11.07 3.93 9.65 12 1.59l8.07 8.06-1.42 1.42z",
-  "Laisvalaikio erdvė": "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z",
-  "Skveras": "M12 22c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z",
-  "Žaidimų miestelis": "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5",
-  "Ežero pakrantė": "M22 16.73a1 1 0 0 1-.18.55l-.64.83a4 4 0 0 1-6.36 0l-.64-.83a1 1 0 0 0-1.36-.18l-.64.83a4 4 0 0 1-6.36 0L5.18 17.1A1 1 0 0 1 5 16.73V3h2v10.27l1.82 2.37a2 2 0 0 0 3.18 0L13.82 13.27V3h2v10.27l1.82 2.37a2 2 0 0 0 3.18 0L22 13.27V16.73z",
-  "Kultūros parkas": "M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3z",
-  "Poilsio parkas": "M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75",
-  "Pump track": "M13 5.41V21h-2V5.41L5.35 11.07 3.93 9.65 12 1.59l8.07 8.06-1.42 1.42z",
-};
+// Playground equipment SVG - a swing set silhouette
+const PLAYGROUND_SVG = `
+  <g opacity="0.2" fill="white" stroke="white" stroke-width="0.5">
+    <!-- Swing frame -->
+    <line x1="280" y1="100" x2="320" y2="260" stroke-width="4" opacity="0.6"/>
+    <line x1="520" y1="100" x2="480" y2="260" stroke-width="4" opacity="0.6"/>
+    <line x1="270" y1="100" x2="530" y2="100" stroke-width="4" opacity="0.6"/>
+    <!-- Swing 1 -->
+    <line x1="360" y1="100" x2="350" y2="220" stroke-width="2" opacity="0.5"/>
+    <line x1="390" y1="100" x2="380" y2="220" stroke-width="2" opacity="0.5"/>
+    <rect x="345" y="220" width="40" height="6" rx="2" opacity="0.5"/>
+    <!-- Swing 2 -->
+    <line x1="430" y1="100" x2="440" y2="200" stroke-width="2" opacity="0.5"/>
+    <line x1="460" y1="100" x2="450" y2="200" stroke-width="2" opacity="0.5"/>
+    <rect x="435" y="200" width="20" height="6" rx="2" opacity="0.5"/>
+    <!-- Slide -->
+    <line x1="560" y1="140" x2="560" y2="260" stroke-width="4" opacity="0.6"/>
+    <line x1="580" y1="140" x2="580" y2="155" stroke-width="4" opacity="0.6"/>
+    <line x1="580" y1="155" x2="680" y2="260" stroke-width="4" opacity="0.6"/>
+    <line x1="555" y1="140" x2="585" y2="140" stroke-width="3" opacity="0.6"/>
+    <!-- Trees -->
+    <circle cx="170" cy="200" r="35" opacity="0.15"/>
+    <circle cx="155" cy="180" r="30" opacity="0.12"/>
+    <circle cx="190" cy="185" r="28" opacity="0.12"/>
+    <rect x="168" y="235" width="6" height="30" opacity="0.15"/>
+    <circle cx="700" cy="210" r="30" opacity="0.12"/>
+    <circle cx="720" cy="195" r="25" opacity="0.10"/>
+    <rect x="698" y="240" width="5" height="25" opacity="0.12"/>
+    <!-- Ground -->
+    <line x1="100" y1="265" x2="750" y2="265" stroke-width="2" opacity="0.15"/>
+  </g>
+`;
 
 export function getPlaceholderImage(city: string, category: string): string {
-  const [c1, c2] = CITY_COLORS[city] || ["#6366f1", "#8b5cf6"];
-  const iconPath = ICONS[category] || ICONS["Žaidimų aikštelė"];
+  const [c1, c2, accent] =
+    CITY_COLORS[city] || ["#4338ca", "#6366f1", "#a5b4fc"];
+
+  const categoryLabel = category.toUpperCase();
 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
     <defs>
       <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:${c1};stop-opacity:1" />
-        <stop offset="100%" style="stop-color:${c2};stop-opacity:1" />
+        <stop offset="0%" stop-color="${c1}"/>
+        <stop offset="100%" stop-color="${c2}"/>
       </linearGradient>
-      <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-        <circle cx="15" cy="15" r="1.5" fill="rgba(255,255,255,0.15)"/>
-      </pattern>
+      <radialGradient id="glow" cx="50%" cy="40%" r="60%">
+        <stop offset="0%" stop-color="white" stop-opacity="0.08"/>
+        <stop offset="100%" stop-color="white" stop-opacity="0"/>
+      </radialGradient>
     </defs>
     <rect width="800" height="400" fill="url(#bg)"/>
-    <rect width="800" height="400" fill="url(#dots)"/>
-    <g transform="translate(370, 150) scale(2.5)" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="${iconPath}"/>
-    </g>
-    <text x="400" y="280" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="rgba(255,255,255,0.9)" letter-spacing="2">${city.toUpperCase()}</text>
+    <rect width="800" height="400" fill="url(#glow)"/>
+    ${PLAYGROUND_SVG}
+    <rect x="320" y="290" width="160" height="28" rx="14" fill="${accent}" opacity="0.25"/>
+    <text x="400" y="310" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="white" letter-spacing="1.5">${categoryLabel}</text>
+    <text x="400" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" font-weight="800" fill="white" opacity="0.9" letter-spacing="3">${city.toUpperCase()}</text>
   </svg>`;
 
   return `data:image/svg+xml,${encodeURIComponent(svg)}`;

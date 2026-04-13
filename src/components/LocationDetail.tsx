@@ -1,4 +1,5 @@
 import type { Location } from "../data/locations";
+import LocationImage from "./LocationImage";
 
 interface LocationDetailProps {
   location: Location;
@@ -28,7 +29,12 @@ export default function LocationDetail({
       </button>
 
       <div className="detail-panel__hero">
-        <img src={location.imageUrl} alt={location.title} />
+        <LocationImage
+          src={location.imageUrl}
+          alt={location.title}
+          city={location.city}
+          category={location.category}
+        />
         <div className="detail-panel__hero-overlay">
           <span className="detail-panel__category">{location.category}</span>
         </div>

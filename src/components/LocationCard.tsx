@@ -1,4 +1,5 @@
 import type { Location } from "../data/locations";
+import LocationImage from "./LocationImage";
 
 interface LocationCardProps {
   location: Location;
@@ -17,7 +18,12 @@ export default function LocationCard({
       onClick={onClick}
     >
       <div className="location-card__image">
-        <img src={location.imageUrl} alt={location.title} loading="lazy" />
+        <LocationImage
+          src={location.imageUrl}
+          alt={location.title}
+          city={location.city}
+          category={location.category}
+        />
         <span className="location-card__category">{location.category}</span>
       </div>
       <div className="location-card__body">
