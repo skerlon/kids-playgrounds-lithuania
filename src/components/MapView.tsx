@@ -61,9 +61,9 @@ export default function MapView({
       zoom={DEFAULT_ZOOM}
       className="map-container"
       zoomControl={false}
+      attributionControl={false}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <FlyToLocation location={activeLocation} />
