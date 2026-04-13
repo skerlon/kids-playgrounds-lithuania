@@ -1,3 +1,5 @@
+import { getPlaceholderImage } from "../utils/placeholderImage";
+
 export interface Location {
   id: string;
   title: string;
@@ -33,8 +35,7 @@ export const locations: Location[] = [
     ],
     ageRange: "2–12 m.",
     sourceUrl: "https://kelionessuvaikais.lt/florijono-sveras-vilniuje/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1587691592099-24045f35ab40?w=800&q=80",
+    imageUrl: "",
   },
   // 2. Kaunas. Kovo 11-osios parko žaidimų aikštelė
   {
@@ -56,8 +57,7 @@ export const locations: Location[] = [
     ageRange: "2–14 m.",
     sourceUrl:
       "https://kelionessuvaikais.lt/kovo-11-osios-parkas-kaune-nauja-ispudingiausia-zaidimu-aikstele-lietuvoje/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1596997000103-e597b3ca50df?w=800&q=80",
+    imageUrl: "",
   },
   // 3. Širvintos. Žaidimų aikštelė miesto centre
   {
@@ -79,8 +79,7 @@ export const locations: Location[] = [
     ageRange: "1–12 m.",
     sourceUrl:
       "https://zemelapis.kelionessuvaikais.lt/lankytinos-vietos/zaidimu-aikstele-sirvintu-miesto-centre/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1566454825481-9c31bd88e498?w=800&q=80",
+    imageUrl: "",
   },
   // 4. Jonava. Žaidimų aikštelė Rimkų mikrorajone
   {
@@ -101,8 +100,7 @@ export const locations: Location[] = [
     ageRange: "2–12 m.",
     sourceUrl:
       "https://kelionessuvaikais.lt/geriausios-zaidimu-aiksteles-lietuvoje/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1611329857570-f02f340e7378?w=800&q=80",
+    imageUrl: "",
   },
   // 5. Palanga. Vaikų parkas
   {
@@ -124,8 +122,7 @@ export const locations: Location[] = [
     ageRange: "1–12 m.",
     sourceUrl:
       "https://kelionessuvaikais.lt/geriausios-zaidimu-aiksteles-lietuvoje/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1564429238961-bf8ee0a91613?w=800&q=80",
+    imageUrl: "",
   },
   // 6. Kaunas. Kalniečių parko žaidimų aikštelės
   {
@@ -147,8 +144,7 @@ export const locations: Location[] = [
     ageRange: "1–16 m.",
     sourceUrl:
       "https://kelionessuvaikais.lt/geriausios-zaidimu-aiksteles-lietuvoje/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1568393691622-c7ba131d63b4?w=800&q=80",
+    imageUrl: "",
   },
   // 7. Utena. Vyžuonos parkas
   {
@@ -169,8 +165,7 @@ export const locations: Location[] = [
     ageRange: "2–12 m.",
     sourceUrl:
       "https://kelionessuvaikais.lt/geriausios-zaidimu-aiksteles-lietuvoje/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1575783970733-1aaedde1db74?w=800&q=80",
+    imageUrl: "",
   },
   // 8. Zarasai. Zaraso ežero pakrantė
   {
@@ -192,8 +187,7 @@ export const locations: Location[] = [
     ageRange: "2–14 m.",
     sourceUrl:
       "https://kelionessuvaikais.lt/geriausios-zaidimu-aiksteles-lietuvoje/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1596997000103-e597b3ca50df?w=800&q=80",
+    imageUrl: "",
   },
   // 9. Panevėžys. Kultūros ir poilsio parkas
   {
@@ -214,8 +208,7 @@ export const locations: Location[] = [
     ageRange: "2–16 m.",
     sourceUrl:
       "https://kelionessuvaikais.lt/geriausios-zaidimu-aiksteles-lietuvoje/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1680458842485-dc02b04e4856?w=800&q=80",
+    imageUrl: "",
   },
   // 10. Biržai. Žaidimų aikštelė prie Evangelikų reformatų bažnyčios
   {
@@ -236,8 +229,7 @@ export const locations: Location[] = [
     ageRange: "3–12 m.",
     sourceUrl:
       "https://kelionessuvaikais.lt/geriausios-zaidimu-aiksteles-lietuvoje/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1566454825481-9c31bd88e498?w=800&q=80",
+    imageUrl: "",
   },
   // 11. Visaginas. Žaidimų miestelis
   {
@@ -258,8 +250,7 @@ export const locations: Location[] = [
     ageRange: "2–14 m.",
     sourceUrl:
       "https://kelionessuvaikais.lt/geriausios-zaidimu-aiksteles-lietuvoje/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1564429238961-bf8ee0a91613?w=800&q=80",
+    imageUrl: "",
   },
   // 12. Alytus. Jaunimo parkas
   {
@@ -281,8 +272,7 @@ export const locations: Location[] = [
     ageRange: "3–18 m.",
     sourceUrl:
       "https://kelionessuvaikais.lt/geriausios-zaidimu-aiksteles-lietuvoje/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1611329857570-f02f340e7378?w=800&q=80",
+    imageUrl: "",
   },
   // 13. Klaipėda. Poilsio parkas
   {
@@ -304,8 +294,7 @@ export const locations: Location[] = [
     ageRange: "1–18 m.",
     sourceUrl:
       "https://zemelapis.kelionessuvaikais.lt/lankytinos-vietos/klaipedos-poilsio-parkas/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1587691592099-24045f35ab40?w=800&q=80",
+    imageUrl: "",
   },
   // 14. Vilnius. Perkūno skveras
   {
@@ -327,8 +316,7 @@ export const locations: Location[] = [
     ageRange: "1–12 m.",
     sourceUrl:
       "https://zemelapis.kelionessuvaikais.lt/lankytinos-vietos/perkuno-skveras-ir-zaidimu-aikstele/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1596997000103-e597b3ca50df?w=800&q=80",
+    imageUrl: "",
   },
   // 15. Nemenčinė. Įspūdingiausias Pump track Lietuvoje
   {
@@ -350,7 +338,11 @@ export const locations: Location[] = [
     ageRange: "3–16 m.",
     sourceUrl:
       "https://zemelapis.kelionessuvaikais.lt/lankytinos-vietos/nemencines-zaidimu-aikstele-ir-laisvalaikio-erdve/",
-    imageUrl:
-      "https://images.unsplash.com/photo-1680458842485-dc02b04e4856?w=800&q=80",
+    imageUrl: "",
   },
 ];
+
+// Generate placeholder images for all locations
+for (const loc of locations) {
+  loc.imageUrl = getPlaceholderImage(loc.city, loc.category);
+}
